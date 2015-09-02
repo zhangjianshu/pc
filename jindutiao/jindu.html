@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .linebox{
+            width: 698px;
+            height: 2px;
+            background: #978265;
+            margin: 50px auto;
+            position: relative;
+        }
+        .linebox>div{
+            position: absolute;
+            top: -60px;
+            width: 50px;
+            height: 50px;
+        }
+        .linebox>div h4{
+            width: 50px;
+            height: 30px;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .linebox>div span{
+            background: url('images/点点-灰.png') no-repeat center;
+            width: 50px;
+            height: 25px;
+            display: block;
+            position: absolute;
+            top: 50px;
+        }
+        .linebox>div:nth-child(1){
+            position: absolute;
+            left:12.5% ;
+        }
+        .linebox>div:nth-child(2){
+            position: absolute;
+            left:37.5% ;
+        }
+        .linebox>div:nth-child(3){
+            position: absolute;
+            left:65% ;
+        }
+        .linebox>div:nth-child(4){
+            position: absolute;
+            left:87.5% ;
+        }
+        .picbox{
+            width: 698px;
+            height: 100px;
+            background: red;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        ul{
+            width: 400%;
+            height: 100px;
+            -webkit-transition: all .5s linear;
+            -moz-transition: all .5s linear;
+            -ms-transition: all .5s linear;
+            -o-transition: all .5s linear;
+            transition: all .5s linear;
+        }
+        ul li{
+            float: left;
+            width: 25%;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div class="linebox" id="linebox">
+    <div class="linebox-list">
+        <h4>历史篇</h4>
+        <span></span></div>
+    <div class="linebox-list">
+        <h4>传承篇</h4>
+        <span></span></div>
+    <div class="linebox-list">
+        <h4>发展篇</h4>
+        <span></span></div>
+    <div class="linebox-list">
+        <h4>展望篇</h4>
+        <span></span></div>
+</div>
+<div class="picbox" id="picbox">
+    <ul>
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+</div>
+<script>
+    var linebox=document.getElementById("linebox");
+    var Aspans=linebox.getElementsByTagName("span");
+    var picbox=document.getElementById("picbox").getElementsByTagName("ul")[0];
+    for(var i=0;i<Aspans.length;i++){
+        Aspans[i].index=i
+        Aspans[i].onclick=function(){
+            for(var k=0;k<Aspans.length;k++){
+                Aspans[k].style.background="url('images/点点-灰.png') no-repeat center";
+            };
+            //alert(this.index)
+            this.style.background="url('images/点点-金.png') no-repeat center";
+            picbox.style.marginLeft="-"+this.index+"00%";
+        }
+    }
+</script>
+</body>
+</html>
